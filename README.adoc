@@ -1,0 +1,23 @@
+= dot-emacs
+
+My https://github.com/syl20bnr/spacemacs[Spacemacs] configuration, largely for Clojure development.
+
+I aim to be as close as possible to the default Spacemacs configuration, on the assumption that this will reduce the amount of work I have to do on upgrades.
+
+* Vim bindings
+* CIDER + clojure-lsp (no clj-refactor)
+** Reduced LSP UI to avoid distractions.
+* No evil-lisp-state - I prefer https://github.com/luxbock/evil-cleverparens[evil-cleverparens].
+
+== Installation
+
+This repo uses https://www.gnu.org/software/stow/[GNU Stow] for dotfile management (which I highly recommend!)
+
+* Clone this repo to a directory in your home directory, with submodules (`--recursive`)
+* `stow -S emacs` sets up symlinks in your home directory.
+* `stow -D emacs` backs it out.
+
+== License
+
+These dotfiles are free and unencumbered public domain software.
+For more information, see http://unlicense.org/ or the accompanying LICENSE file.
