@@ -577,19 +577,16 @@ you should place your code here."
 
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
 
-  (require 'org)
+  (with-eval-after-load 'org
   (add-hook 'org-mode-hook #'org-indent-mode)
   (setq org-agenda-files '("~/notes" "~/juxt-notes"))
-  (add-hook 'org-mode-hook #'visual-line-mode)
+    (add-hook 'org-mode-hook #'visual-line-mode))
 
-  (require 'adoc-mode)
-  (add-hook 'adoc-mode-hook #'visual-line-mode)
+  (with-eval-after-load 'adoc-mode
+    (add-hook 'adoc-mode-hook #'visual-line-mode))
 
-  (require 'markdown-mode)
-  (add-hook 'markdown-mode-hook #'visual-line-mode)
-
-  (spacemacs/force-yasnippet-off)
-  (add-to-list 'auto-mode-alist '("\\.brj$" . clojure-mode))
+  (with-eval-after-load 'markdown-mode
+    (add-hook 'markdown-mode-hook #'visual-line-mode))
 
   ;; fixes issue with cljr-add-missing-libspec
   (define-obsolete-variable-alias 'peg-stack 'peg--stack "1.0"))
