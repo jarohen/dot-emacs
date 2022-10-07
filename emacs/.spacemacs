@@ -584,8 +584,8 @@ you should place your code here."
   (spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hooks)
 
   (with-eval-after-load 'org
-  (add-hook 'org-mode-hook #'org-indent-mode)
-  (setq org-agenda-files '("~/notes" "~/juxt-notes"))
+    (add-hook 'org-mode-hook #'org-indent-mode)
+    (setq org-agenda-files '("~/notes" "~/juxt-notes"))
     (add-hook 'org-mode-hook #'visual-line-mode))
 
   (with-eval-after-load 'adoc-mode
@@ -595,7 +595,11 @@ you should place your code here."
     (add-hook 'markdown-mode-hook #'visual-line-mode))
 
   ;; fixes issue with cljr-add-missing-libspec
-  (define-obsolete-variable-alias 'peg-stack 'peg--stack "1.0"))
+  (define-obsolete-variable-alias 'peg-stack 'peg--stack "1.0")
+
+  (with-eval-after-load 'sql
+    (sql-set-product-feature 'postgres :prompt-regexp "^[[:alnum:]_]*=[*!]?[#>] ")
+    (sql-set-product-feature 'postgres :prompt-cont-regexp "^[[:alnum:]_]*-[*!]?[#>] ")))
 
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
