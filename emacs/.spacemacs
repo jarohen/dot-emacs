@@ -641,6 +641,8 @@ This function is called at the very end of Spacemacs initialization."
            (match 1)
            (try+ 0)
            (pdoseq 2))))
+ '(sql-postgres-login-params
+   '((user :default "postgres") (server :default "localhost") (database :default "postgres") (port :default 5432)))
  '(undo-tree-auto-save-history nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
