@@ -96,7 +96,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '()
 
-   ;; A list of packages that cannot be updated.
+  ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
@@ -620,14 +620,14 @@ This function is called at the very end of Spacemacs initialization."
    '(lsp-docker systemd journalctl-mode dap-mode bui lsp-pyright lsp-origami origami toml-mode ron-mode racer rust-mode flycheck-rust cargo hide-comnt evil-terminal-cursor-changer elisp-def kaocha-runner graphviz-dot-mode command-log-mode persistent-scratch lsp-ui lsp-treemacs lsp-python-ms helm-lsp company-tern tern dune counsel-gtags counsel swiper ivy yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay string-inflection sql-indent spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js powershell popwin pippel pipenv pip-requirements pcre2el password-generator paradox overseer org-projectile org-pomodoro org-mime org-download org-cliplink org-bullets open-junk-file nodejs-repl nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-section magit-gitflow macrostep lsp-haskell lorem-ipsum livid-mode live-py-mode link-hint kotlin-mode json-navigator js2-refactor js-doc intero insert-shebang indent-guide importmagic impatient-mode hybrid-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-org helm-mode-manager helm-make helm-ls-git helm-hoogle helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ gh-md fuzzy font-lock+ flycheck-package flycheck-elsa flycheck-clj-kondo flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help emr emmet-mode elm-test-runner elm-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode dockerfile-mode docker diminish devdocs define-word dante dactyl-mode cython-mode csv-mode company-web company-shell company-ghci company-ghc company-cabal company-anaconda column-enforce-mode cmm-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu centered-cursor-mode browse-at-remote blacken bind-map auto-yasnippet auto-highlight-symbol auto-compile attrap aggressive-indent adoc-mode ace-link ace-jump-helm-line ac-ispell))
  '(paradox-github-token t)
  '(safe-local-variable-values
-   '((eval add-to-list 'cider-test-defining-forms "def-slt-test")
+   '((cider-clojure-cli-aliases . ":core2:dev")
+     (eval add-to-list 'cider-test-defining-forms "def-slt-test")
      (eval define-clojure-indent
            (match 1)
            (for-all 1))
-     (cider-clojure-cli-aliases . ":core2:dev")
-     (cider-clojure-cli-aliases . "dev")
      (eval define-clojure-indent
            (match 1))
+     (cider-clojure-cli-aliases . "dev")
      (cider-clojure-cli-global-options . "-R:dev")
      (cider-cljs-repl-types
       (edge "(do (require 'dev-extras) ((resolve 'dev-extras/cljs-repl)))"))

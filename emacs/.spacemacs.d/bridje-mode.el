@@ -17,7 +17,6 @@
   (add-hook 'bridje-mode-hook 'lsp)
 
   (defun lsp-brj-eval-defun ()
-    "Request server info raw data."
     (interactive)
     (lsp--cur-workspace-check)
     (lsp--flush-delayed-changes)
@@ -27,7 +26,6 @@
                                       :position (lsp--cur-position))))))
 
   (defun lsp-brj-eval-buffer ()
-    "Request server info raw data."
     (interactive)
     (lsp--cur-workspace-check)
     (lsp--flush-delayed-changes)
@@ -36,6 +34,10 @@
                                 (list :textDocument (lsp--versioned-text-document-identifier))))))
 
   (spacemacs/set-leader-keys-for-major-mode 'bridje-mode "eb" 'lsp-brj-eval-buffer)
-  (spacemacs/set-leader-keys-for-major-mode 'bridje-mode "ef" 'lsp-brj-eval-defun))
+  (spacemacs/set-leader-keys-for-major-mode 'bridje-mode "ef" 'lsp-brj-eval-defun)
+
+  (when (package-installed-p 'evil-cleverparens)
+    (with-eval-after-load 'evil-cleverparens
+      (add-hook 'bridje-mode-hook #'evil-cleverparens-mode))))
 
 (provide 'bridje-mode)
