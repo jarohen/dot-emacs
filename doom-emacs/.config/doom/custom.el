@@ -4,11 +4,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((eval add-to-list 'cider-test-defining-forms "def-slt-test")
+   '((cider-clojure-cli-aliases . ":core2:dev")
+     (eval add-to-list 'cider-test-defining-forms "def-slt-test")
      (eval define-clojure-indent
       (match 1)
       (for-all 1))
-     (cider-clojure-cli-aliases . ":core2:dev")
      (cider-ns-refresh-after-fn . "integrant.repl/resume")
      (cider-ns-refresh-before-fn . "integrant.repl/suspend"))))
 (custom-set-faces

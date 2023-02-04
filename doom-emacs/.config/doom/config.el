@@ -30,12 +30,16 @@
 
 (setq evil-escape-key-sequence "fd")
 (setq evil-move-beyond-eol t)
+(setq evil-kill-on-visual-paste nil)
 
 (use-package evil-cleverparens
-  :config
-  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
-  (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
-  (add-hook 'prog-mode-hook #'evil-cleverparens-mode))
+  :hook (prog-mode . evil-cleverparens-mode))
+
+(use-package evil-smartparens
+  :hook (prog-mode . evil-smartparens-mode))
+
+(use-package smartparens
+  :hook (prog-mode . smartparens-strict-mode))
 
 (use-package lsp
   :custom
@@ -44,3 +48,9 @@
   (lsp-lens-enable nil)
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-enable-indentation nil))
+
+(use-package clojure-mode
+  :config
+  (map! (:localleader
+         (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
+               "ef" #'cider-eval-defun-at-point))))

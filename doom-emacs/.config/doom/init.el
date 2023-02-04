@@ -17,6 +17,7 @@
        unicode
        (vc-gutter +pretty)
        vi-tilde-fringe
+       workspaces
 
        :editor
        (evil +everywhere)
@@ -71,4 +72,4 @@
        yaml
 
        :config
-       (default +bindings))
+       (default +bindings +smartparens))
