@@ -57,6 +57,10 @@
          (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
                "ef" #'cider-eval-defun-at-point))))
 
+(map! (:localleader
+       (:map emacs-lisp-mode-map
+             "ef" #'eval-defun)))
+
 (use-package magit
   :custom
   (magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
