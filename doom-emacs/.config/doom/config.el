@@ -35,9 +35,6 @@
 (use-package evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode))
 
-(use-package evil-smartparens
-  :hook (prog-mode . evil-smartparens-mode))
-
 (use-package smartparens
   :hook (prog-mode . smartparens-strict-mode))
 
