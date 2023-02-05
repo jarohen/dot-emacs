@@ -45,7 +45,7 @@
        gist
        lookup
        lsp
-       magit
+       (magit +forge)
        make
        pass
        pdf
