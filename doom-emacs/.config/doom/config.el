@@ -19,7 +19,7 @@
 (setq doom-font
       (font-spec :size (cond
                           ((string= (system-name) "graphite") 16)
-                          (t 12))))
+                          (t 13))))
 
 (setq doom-theme 'doom-tomorrow-night)
 
@@ -49,13 +49,25 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-enable-indentation nil))
 
+(use-package company
+  :custom
+  (company-idle-delay nil))
+
 (use-package clojure-mode
   :custom
   (cljr-insert-newline-after-require nil)
   :config
   (map! (:localleader
          (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
-               "ef" #'cider-eval-defun-at-point))))
+               "ef" #'cider-eval-defun-at-point
+               "pf" #'cider-pprint-eval-defun-at-point
+               "tb" #'cider-test-show-report
+               "rth" #'clojure-thread
+               "ruw" #'clojure-unwind
+               "rua" #'clojure-unwind-all)))
+  (map! :map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
+        :i
+        "<backspace>" #'sp-backward-delete-char))
 
 (map! (:localleader
        (:map emacs-lisp-mode-map
