@@ -17,9 +17,16 @@
 ;;
 
 (setq doom-font
-      (font-spec :size (cond
+      (font-spec :family "Source Code Pro"
+                 :size (cond
                           ((string= (system-name) "graphite") 16)
                           (t 13))))
+
+(setq doom-big-font
+      (font-spec :family "Source Code Pro"
+                 :size (cond
+                          ((string= (system-name) "graphite") 24)
+                          (t 20))))
 
 (setq doom-theme 'doom-tomorrow-night)
 
@@ -34,6 +41,8 @@
 (setq evil-escape-key-sequence "fd")
 (setq evil-move-beyond-eol t)
 (setq evil-kill-on-visual-paste nil)
+
+(global-subword-mode t)
 
 (use-package evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode))
@@ -51,7 +60,10 @@
 
 (use-package company
   :custom
-  (company-idle-delay nil))
+  (company-idle-delay nil)
+  :config
+  (map! (:map prog-mode-map
+              "<tab>" #'company-indent-or-complete-common)))
 
 (use-package clojure-mode
   :custom
@@ -83,3 +95,8 @@
   (git-commit-setup-hook '(git-commit-save-message git-commit-setup-changelog-support git-commit-propertize-diff with-editor-usage-message))
   (git-commit-fill-column 7200)
   (magit-diff-section-arguments '("--no-ext-diff")))
+
+(use-package ace-window
+  :config
+  (map! :leader
+        "ww" #'ace-window))
