@@ -56,6 +56,8 @@
 (use-package clojure-mode
   :custom
   (cljr-insert-newline-after-require nil)
+  (clojure-toplevel-inside-comment-form t)
+
   :config
   (map! (:localleader
          (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
