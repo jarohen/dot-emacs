@@ -95,7 +95,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '((string-edit :location (recipe :fetcher github :repo "magnars/string-edit.el" :commit "d7c4b9db6c4987b5c022a9858e6302a4c53aff5f")))
 
   ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -643,14 +643,16 @@ This function is called at the very end of Spacemacs initialization."
            (try+ 0)
            (pdoseq 2))))
  '(sql-postgres-login-params
-   '((user :default "postgres") (server :default "localhost") (database :default "postgres") (port :default 5432)))
+   '((user :default "postgres")
+     (server :default "localhost")
+     (database :default "postgres")
+     (port :default 5432)))
  '(undo-tree-auto-save-history nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
  '(evil-search-highlight-persist-highlight-face ((t (:background "dim gray"))))
  '(git-commit-overlong-summary ((t (:inherit font-lock-type-face))))
  '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t)
