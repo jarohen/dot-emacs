@@ -98,5 +98,6 @@
 
 (use-package ace-window
   :config
+  (ace-window-display-mode t)
   (map! :leader
         "ww" #'ace-window))
