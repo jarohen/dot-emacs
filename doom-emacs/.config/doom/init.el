@@ -17,7 +17,6 @@
        unicode
        (vc-gutter +pretty)
        vi-tilde-fringe
-       workspaces
 
        :editor
        (evil +everywhere)

@@ -3,46 +3,45 @@
 (setq user-full-name "James Henderson"
       user-mail-address "james@jarohen.dev")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-
 (setq doom-font
       (font-spec :family "Source Code Pro"
                  :size (cond
                           ((string= (system-name) "graphite") 16)
                           (t 13))))
 
-(setq doom-big-font
-      (font-spec :family "Source Code Pro"
-                 :size (cond
-                          ((string= (system-name) "graphite") 24)
-                          (t 20))))
-
 (setq doom-theme 'doom-tomorrow-night)
 
 (setq display-line-numbers-type t)
-
-(setq evil-snipe-override-evil-repeat-keys nil)
-(setq doom-localleader-key ",")
-
-(setq which-key-show-early-on-C-h t)
-(setq which-key-idle-delay 0.5)
-
-(setq evil-escape-key-sequence "fd")
-(setq evil-move-beyond-eol t)
-(setq evil-kill-on-visual-paste nil)
-
 (global-subword-mode t)
+
+;;;; Packages
+
+(use-package doom-modeline
+  :custom
+  (doom-modeline-major-mode-icon t))
+
+(use-package evil
+  :custom
+  (doom-localleader-key ",")
+  (evil-escape-key-sequence "fd")
+  (evil-move-beyond-eol t)
+  (evil-kill-on-visual-paste nil)
+
+  :config
+  (map! :leader
+         "TAB" nil
+         :desc "Last Buffer" "TAB" #'evil-switch-to-windows-last-buffer)
+  (map! :map evil-normal-state-map
+        "/" #'+default/search-buffer))
+
+(use-package evil-snipe
+  :custom
+  (evil-snipe-override-evil-repeat-keys nil))
+
+(use-package which-key
+  :custom
+  (which-key-show-early-on-C-h t)
+  (which-key-idle-delay 0.5))
 
 (use-package evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode))
@@ -65,6 +64,10 @@
   (map! (:map prog-mode-map
               "<tab>" #'company-indent-or-complete-common)))
 
+(use-package projectile
+  :custom
+  (projectile-project-search-path '(("~/src" . 2) ("~/.config" . 1))))
+
 (use-package clojure-mode
   :custom
   (cljr-insert-newline-after-require nil)
@@ -83,9 +86,11 @@
         :i
         "<backspace>" #'sp-backward-delete-char))
 
-(map! (:localleader
-       (:map emacs-lisp-mode-map
-             "ef" #'eval-defun)))
+(use-package elisp-mode
+  :config
+  (map! (:localleader
+         (:map emacs-lisp-mode-map
+               "ef" #'eval-defun))))
 
 (use-package magit
   :custom
@@ -94,7 +99,13 @@
   (git-commit-summary-max-length 7200)
   (git-commit-setup-hook '(git-commit-save-message git-commit-setup-changelog-support git-commit-propertize-diff with-editor-usage-message))
   (git-commit-fill-column 7200)
-  (magit-diff-section-arguments '("--no-ext-diff")))
+  (magit-diff-section-arguments '("--no-ext-diff"))
+
+  :config
+  (map! :leader
+      (:prefix "g"
+        :desc "" "s" nil  ; remove existing binding
+        :desc "Magit Status" "s" #'magit-status)))
 
 (use-package ace-window
   :config
