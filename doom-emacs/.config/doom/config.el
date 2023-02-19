@@ -6,8 +6,8 @@
 (setq doom-font
       (font-spec :family "Source Code Pro"
                  :size (cond
-                          ((string= (system-name) "graphite") 16)
-                          (t 13))))
+                        ((string= (system-name) "graphite") 16)
+                        (t 13))))
 
 (setq doom-theme 'doom-tomorrow-night)
 
@@ -29,8 +29,8 @@
 
   :config
   (map! :leader
-         "TAB" nil
-         :desc "Last Buffer" "TAB" #'evil-switch-to-windows-last-buffer)
+        "TAB" nil
+        :desc "Last Buffer" "TAB" #'evil-switch-to-windows-last-buffer)
   (map! :map evil-normal-state-map
         "/" #'+default/search-buffer))
 
@@ -103,12 +103,21 @@
 
   :config
   (map! :leader
-      (:prefix "g"
-        :desc "" "s" nil  ; remove existing binding
-        :desc "Magit Status" "s" #'magit-status)))
+        (:prefix "g"
+         :desc "" "s" nil  ; remove existing binding
+         :desc "Magit Status" "s" #'magit-status)))
 
 (use-package ace-window
   :config
   (ace-window-display-mode t)
   (map! :leader
         "ww" #'ace-window))
+
+(use-package avy
+  :config
+  (map! :leader
+        (:prefix ("j" . "jump")
+         :desc "Jump to characters" "j" #'evil-avy-goto-char-timer
+         :desc "Jump to line" "l" #'evil-avy-goto-line
+         :desc "Jump to word" "w" #'evil-avy-goto-subword-1
+         :desc "Jump to WORD" "W" #'evil-avy-goto-word-1)))
