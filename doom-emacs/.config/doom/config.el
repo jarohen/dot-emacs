@@ -30,9 +30,7 @@
   :config
   (map! :leader
         "TAB" nil
-        :desc "Last Buffer" "TAB" #'evil-switch-to-windows-last-buffer)
-  (map! :map evil-normal-state-map
-        "/" #'+default/search-buffer))
+        :desc "Last Buffer" "TAB" #'evil-switch-to-windows-last-buffer))
 
 (use-package evil-snipe
   :custom
