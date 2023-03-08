@@ -22,7 +22,6 @@
 
 (use-package evil
   :custom
-  (doom-localleader-key ",")
   (evil-escape-key-sequence "fd")
   (evil-move-beyond-eol t)
   (evil-kill-on-visual-paste nil)
@@ -61,6 +60,11 @@
   :config
   (map! (:map prog-mode-map
               "<tab>" #'company-indent-or-complete-common)))
+
+(use-package project
+  :config
+  (map! (:leader
+         "p%" #'project-query-replace-regexp)))
 
 (use-package projectile
   :custom

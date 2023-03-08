@@ -1,5 +1,8 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+;; see https://github.com/doomemacs/doomemacs/issues/7130
+(setq doom-localleader-key ",")
+
 (doom! :input
 
        :completion
