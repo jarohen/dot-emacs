@@ -110,6 +110,10 @@
          :desc "" "s" nil  ; remove existing binding
          :desc "Magit Status" "s" #'magit-status)))
 
+(use-package web-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode)))
+
 (use-package ace-window
   :config
   (ace-window-display-mode t)
