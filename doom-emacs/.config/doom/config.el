@@ -9,7 +9,7 @@
                         ((string= (system-name) "graphite") 16)
                         (t 13))))
 
-(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'doom-one)
 
 (setq display-line-numbers-type t)
 (global-subword-mode t)
