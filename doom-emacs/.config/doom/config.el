@@ -101,6 +101,7 @@
   (git-commit-summary-max-length 7200)
   (git-commit-setup-hook '(git-commit-save-message git-commit-setup-changelog-support git-commit-propertize-diff with-editor-usage-message))
   (git-commit-fill-column 7200)
+  (git-commit-style-convention-checks '(non-empty-second-line))
   (magit-diff-section-arguments '("--no-ext-diff"))
 
   :config
