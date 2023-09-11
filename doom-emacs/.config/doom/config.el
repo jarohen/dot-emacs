@@ -16,11 +16,12 @@
 
 ;;;; Packages
 
-(use-package doom-modeline
+(use-package! doom-modeline
+  :defer t
   :custom
   (doom-modeline-major-mode-icon t))
 
-(use-package evil
+(use-package! evil
   :custom
   (evil-escape-key-sequence "fd")
   (evil-move-beyond-eol t)
@@ -31,22 +32,22 @@
         "TAB" nil
         :desc "Last Buffer" "TAB" #'evil-switch-to-windows-last-buffer))
 
-(use-package evil-snipe
+(use-package! evil-snipe
   :custom
   (evil-snipe-override-evil-repeat-keys nil))
 
-(use-package which-key
+(use-package! which-key
   :custom
   (which-key-show-early-on-C-h t)
   (which-key-idle-delay 0.5))
 
-(use-package evil-cleverparens
+(use-package! evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode))
 
-(use-package smartparens
+(use-package! smartparens
   :hook (prog-mode . smartparens-strict-mode))
 
-(use-package lsp
+(use-package! lsp
   :custom
   (lsp-ui-doc-enable nil)
   (lsp-ui-sideline-enable nil)
@@ -54,23 +55,23 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-enable-indentation nil))
 
-(use-package company
+(use-package! company
   :custom
   (company-idle-delay nil)
   :config
   (map! (:map prog-mode-map
               "<tab>" #'company-indent-or-complete-common)))
 
-(use-package project
+(use-package! project
   :config
   (map! (:leader
          "p%" #'project-query-replace-regexp)))
 
-(use-package projectile
+(use-package! projectile
   :custom
   (projectile-project-search-path '(("~/src" . 2) ("~/.config" . 1))))
 
-(use-package clojure-mode
+(use-package! clojure-mode
   :custom
   (cljr-insert-newline-after-require nil)
   (clojure-toplevel-inside-comment-form t)
@@ -88,13 +89,13 @@
         :i
         "<backspace>" #'sp-backward-delete-char))
 
-(use-package elisp-mode
+(use-package! elisp-mode
   :config
   (map! (:localleader
          (:map emacs-lisp-mode-map
                "ef" #'eval-defun))))
 
-(use-package magit
+(use-package! magit
   :custom
   (magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
   (magit-repository-directories '(("/home/james/src" . 2)))
@@ -110,17 +111,17 @@
          :desc "" "s" nil  ; remove existing binding
          :desc "Magit Status" "s" #'magit-status)))
 
-(use-package web-mode
+(use-package! web-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode)))
 
-(use-package ace-window
+(use-package! ace-window
   :config
   (ace-window-display-mode t)
   (map! :leader
         "ww" #'ace-window))
 
-(use-package avy
+(use-package! avy
   :config
   (map! :leader
         (:prefix ("j" . "jump")
