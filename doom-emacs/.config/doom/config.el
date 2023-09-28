@@ -42,7 +42,9 @@
   (which-key-idle-delay 0.5))
 
 (use-package! evil-cleverparens
-  :hook (prog-mode . evil-cleverparens-mode))
+  :hook (prog-mode . evil-cleverparens-mode)
+  :config
+  (require 'evil-cleverparens-text-objects))
 
 (use-package! smartparens
   :hook (prog-mode . smartparens-strict-mode))
