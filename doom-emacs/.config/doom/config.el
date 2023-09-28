@@ -44,10 +44,32 @@
 (use-package! evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode)
   :config
-  (require 'evil-cleverparens-text-objects))
+  (require 'evil-cleverparens-text-objects)
+  (map! :map evil-cleverparens-mode-map
+        :n "M-r" nil
+        :n "M-j" nil
+        :n "M-J" nil
+        :n "M-s" nil
+        :n "M-(" nil
+        :n "M-)" nil))
 
 (use-package! smartparens
-  :hook (prog-mode . smartparens-strict-mode))
+  :hook (prog-mode . smartparens-strict-mode)
+
+  :config
+  (map! :leader
+        :map smartparens-mode-map
+        (:prefix ("k" . "lisp")
+         "a" #'sp-absorb-sexp
+         "b" #'sp-wrap-round
+         "B" #'sp-wrap-curly
+         "c" #'sp-convolute-sexp
+         "e" #'sp-splice-sexp-killing-forward
+         "E" #'sp-splice-sexp-killing-backward
+         "j" #'sp-join-sexp
+         "r" #'sp-raise-sexp
+         "s" #'sp-split-sexp
+         "t" #'sp-transpose-hybrid-sexp)))
 
 (use-package! lsp
   :custom
