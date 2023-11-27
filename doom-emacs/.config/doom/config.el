@@ -113,6 +113,10 @@
         :i
         "<backspace>" #'sp-backward-delete-char))
 
+(use-package! cider
+  :custom
+  (cider-test-fail-fast nil))
+
 (use-package! elisp-mode
   :config
   (map! (:localleader
