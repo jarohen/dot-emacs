@@ -52,9 +52,7 @@
         :n "M-r" nil
         :n "M-j" nil
         :n "M-J" nil
-        :n "M-s" nil
-        :n "M-(" nil
-        :n "M-)" nil))
+        :n "M-s" nil))
 
 (use-package! smartparens
   :hook (prog-mode . smartparens-strict-mode)
