@@ -42,6 +42,9 @@
   (which-key-idle-delay 0.5))
 
 (use-package! evil-cleverparens
+  :custom
+  (evil-cleverparens-use-regular-insert t)
+
   :hook (prog-mode . evil-cleverparens-mode)
   :config
   (require 'evil-cleverparens-text-objects)
