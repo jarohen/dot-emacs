@@ -8,16 +8,8 @@
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(org-agenda-files
    '("~/mnt/jms/journal.org" "~/mnt/jms/team-journal" "~/src/xtdb/xtdb-team" "~/src/xtdb/xtdb-leads"))
- '(package-selected-packages '(elcord ebnf-mode))
  '(safe-local-variable-values
-   '((cider-clojure-cli-aliases . ":xtdb:dev")
-     (cider-preferred-build-tool . gradle)
-     (cider-clojure-cli-aliases . ":core2:dev")
-     (eval add-to-list 'cider-test-defining-forms "def-slt-test")
-     (eval define-clojure-indent
-      (match 1)
-      (for-all 1))
-     (cider-ns-refresh-after-fn . "integrant.repl/resume")
+   '((cider-ns-refresh-after-fn . "integrant.repl/resume")
      (cider-ns-refresh-before-fn . "integrant.repl/suspend"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
