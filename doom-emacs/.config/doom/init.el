@@ -44,7 +44,6 @@
        :tools
        docker
        (eval +overlay)
-       gist
        lookup
        lsp
        (magit +forge)
