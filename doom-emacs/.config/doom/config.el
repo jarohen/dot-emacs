@@ -158,3 +158,11 @@
          :desc "Jump to line" "l" #'evil-avy-goto-line
          :desc "Jump to word" "w" #'evil-avy-goto-subword-1
          :desc "Jump to WORD" "W" #'evil-avy-goto-word-1)))
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
