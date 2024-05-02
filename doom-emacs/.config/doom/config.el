@@ -7,7 +7,7 @@
       (font-spec :family "Source Code Pro"
                  :size (cond
                         ((string= (system-name) "graphite") 16)
-                        (t 13))))
+                        (t 14))))
 
 (setq doom-theme 'doom-solarized-dark)
 
