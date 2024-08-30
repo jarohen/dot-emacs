@@ -9,7 +9,9 @@
                         ((string= (system-name) "graphite") 16)
                         (t 14))))
 
-(setq doom-theme 'doom-solarized-dark)
+(setq doom-theme (if (string-match "dark" (string-trim (shell-command-to-string "darkman get")))
+                     'doom-solarized-dark
+                   'doom-solarized-light))
 
 (setq display-line-numbers-type t)
 (global-subword-mode t)
