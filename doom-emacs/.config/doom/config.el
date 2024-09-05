@@ -16,6 +16,8 @@
 (setq display-line-numbers-type t)
 (global-subword-mode t)
 
+(map! :map y-or-n-p-map "SPC" #'y-or-n-p-insert-y)
+
 ;;;; Packages
 
 (use-package! doom-modeline
@@ -54,7 +56,8 @@
         :n "M-r" nil
         :n "M-j" nil
         :n "M-J" nil
-        :n "M-s" nil))
+        :n "M-s" nil
+        :n "M-[" #'evil-cp-wrap-next-square))
 
 (use-package! smartparens
   :hook (prog-mode . smartparens-strict-mode)

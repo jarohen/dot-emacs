@@ -9,9 +9,13 @@
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
  '(org-agenda-files
    '("~/mnt/jms/journal.org" "~/mnt/jms/team-journal" "~/src/xtdb/xtdb-team" "~/src/xtdb/xtdb-leads"))
- '(package-selected-packages '(tree-sitter-langs astro-ts-mode elcord ebnf-mode))
+ '(package-selected-packages '(forge tree-sitter-langs astro-ts-mode elcord ebnf-mode))
  '(safe-local-variable-values
-   '((cider-repl-display-help-banner)
+   '((eval define-clojure-indent
+      (match 1)
+      (for-all 1)
+      (as-> 2))
+     (cider-repl-display-help-banner)
      (cider-clojure-cli-aliases ":xtdb")
      (cider-clojure-cli-aliases . ":xtdb:dev")
      (cider-preferred-build-tool . gradle)
