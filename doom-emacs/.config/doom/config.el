@@ -5,13 +5,11 @@
 
 (setq doom-font
       (font-spec :family "Source Code Pro"
-                 :size (cond
-                        ((string= (system-name) "graphite") 16)
-                        (t 14))))
+                 :size 16))
 
 (setq doom-theme (if (string-match "dark" (string-trim (shell-command-to-string "darkman get")))
-                     'doom-solarized-dark
-                   'doom-solarized-light))
+                     'doom-one
+                   'doom-one-light))
 
 (setq display-line-numbers-type t)
 (global-subword-mode t)
