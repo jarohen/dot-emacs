@@ -169,3 +169,17 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+(use-package! sql
+  :custom
+  (sql-connection-alist '((local-xtdb (sql-product 'postgres)
+                           (sql-port 5432)
+                           (sql-server "localhost")
+                           (sql-user "xtdb")
+                           (sql-password "xtdb")
+                           (sql-database "xtdb"))
+                          (local-xtdb-5433 (sql-product 'postgres)
+                           (sql-port 5433)
+                           (sql-server "localhost")
+                           (sql-user "xtdb")
+                           (sql-password "xtdb")
+                           (sql-database "xtdb")))))
