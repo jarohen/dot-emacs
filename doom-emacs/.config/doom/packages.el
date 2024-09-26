@@ -15,3 +15,6 @@
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
 
 (package! ebnf-mode)
+
+(package! smartparens
+  :recipe (:host github :repo "Fuco1/smartparens" :fork "tomdl89/smartparens" :branch "fix-sp-region-ok-p-regex"))
