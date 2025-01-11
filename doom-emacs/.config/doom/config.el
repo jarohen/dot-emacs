@@ -8,8 +8,8 @@
                  :size 16))
 
 (setq doom-theme (if (string-match "dark" (string-trim (shell-command-to-string "darkman get")))
-                     'doom-one
-                   'doom-one-light))
+                     'doom-solarized-dark
+                   'doom-solarized-light))
 
 (setq display-line-numbers-type t)
 (global-subword-mode t)
