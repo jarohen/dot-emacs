@@ -130,7 +130,7 @@
 (use-package! magit
   :custom
   (magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
-  (magit-repository-directories '(("/home/james/src" . 2)))
+  (magit-repository-directories '(("/home/james" . 1) ("/home/james/src" . 2)))
   (git-commit-summary-max-length 7200)
   (git-commit-setup-hook '(git-commit-save-message git-commit-setup-changelog-support git-commit-propertize-diff with-editor-usage-message))
   (git-commit-fill-column 7200)
