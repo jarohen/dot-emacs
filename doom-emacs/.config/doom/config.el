@@ -7,6 +7,10 @@
       (font-spec :family "Source Code Pro"
                  :size 16))
 
+(setq doom-big-font
+      (font-spec :family "Source Code Pro"
+                 :size 20))
+
 (setq doom-theme (if (string-match "dark" (string-trim (shell-command-to-string "darkman get")))
                      'doom-solarized-dark
                    'doom-solarized-light))
