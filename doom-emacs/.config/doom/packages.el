@@ -10,3 +10,5 @@
 (package! copilot)
 
 (package! ebnf-mode)
+
+(package! chatgpt-shell)

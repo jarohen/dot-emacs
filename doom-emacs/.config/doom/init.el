@@ -46,7 +46,7 @@
        (eval +overlay)
        lookup
        lsp
-       (magit +forge)
+       magit
        make
        pass
        pdf
@@ -68,6 +68,7 @@
        org
        rest
        (rust +lsp)
+       (go +lsp)
        sh
        web
        yaml

@@ -195,3 +195,5 @@
                            (sql-user "xtdb")
                            (sql-password "xtdb")
                            (sql-database "xtdb")))))
+
+(use-package! chatgpt-shell)
